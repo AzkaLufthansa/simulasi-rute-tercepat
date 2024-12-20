@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvav00wtfurxg"]
+
+[ext_resource type="Texture2D" uid="uid://iny1fa5js5f5" path="res://Assets/Icons/red-circle.png" id="1_8sa48"]
+[ext_resource type="Script" path="res://Scenes/vertex.gd" id="1_gn5f1"]
+[ext_resource type="Texture2D" uid="uid://bwisjxtqpwe2f" path="res://Assets/Icons/green_button.png" id="3_n02bx"]
+[ext_resource type="Texture2D" uid="uid://er5j4x02dljo" path="res://Assets/Icons/connect.png" id="4_cd612"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y4wod"]
+radius = 28.0179
+
+[node name="Vertex" type="Node2D"]
+position = Vector2(149, 133)
+script = ExtResource("1_gn5f1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.875015, 0.4375)
+scale = Vector2(0.098, 0.098)
+texture = ExtResource("1_8sa48")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-0.999992, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.125002, 1.4375)
+shape = SubResource("CircleShape2D_y4wod")
+
+[node name="InputPopup" type="ColorRect" parent="."]
+offset_left = 67.0
+offset_top = -72.0
+offset_right = 257.0
+offset_bottom = 46.0
+color = Color(0, 0.172549, 0.32549, 1)
+
+[node name="CycleDurationInput" type="LineEdit" parent="InputPopup"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 39.0
+offset_right = 182.0
+offset_bottom = 70.0
+placeholder_text = "50"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="InputPopup"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 131.0
+offset_bottom = 32.0
+text = "Durasi Siklus (s)"
+metadata/_edit_use_anchors_ = true
+
+[node name="SaveAttributeButton" type="Button" parent="InputPopup"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 73.0
+offset_right = 182.0
+offset_bottom = 104.0
+text = "Simpan"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="InputPopup"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 1.0
+offset_right = 183.0
+offset_bottom = 44.0
+texture_normal = ExtResource("3_n02bx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="InputPopup"]
+position = Vector2(166, 22)
+scale = Vector2(0.0358886, 0.032959)
+texture = ExtResource("4_cd612")
+
+[node name="VertexName" type="Label" parent="."]
+offset_left = -6.0
+offset_top = -12.0
+offset_right = 9.0
+offset_bottom = 11.0
+text = "A"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="InputPopup/SaveAttributeButton" to="." method="_on_save_attribute_button_pressed"]
+[connection signal="pressed" from="InputPopup/TextureButton" to="." method="_on_texture_button_pressed"]

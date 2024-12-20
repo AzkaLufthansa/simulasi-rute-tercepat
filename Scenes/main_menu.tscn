@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhbnqcskotofk"]
+
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_p2ncj"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_p2ncj")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1191.0
+offset_bottom = 683.0
+color = Color(0.0905659, 0.119535, 0.2476, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 364.0
+offset_top = 229.0
+offset_right = 823.0
+offset_bottom = 343.0
+theme_override_font_sizes/font_size = 35
+text = "SIMULASI RUTE TERCEPAT
+BERDASARKAN KECEPATAN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 430.0
+offset_top = 367.0
+offset_right = 762.0
+offset_bottom = 451.0
+text = "Mulai Atur Graf"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

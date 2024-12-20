@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4sdo7ahlyovw"]
+
+[ext_resource type="Script" path="res://Scenes/arrow.gd" id="1_j4gwv"]
+
+[node name="Arrow" type="Node2D"]
+script = ExtResource("1_j4gwv")
+source = null
+target = null
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+
+[node name="Weight" type="LineEdit" parent="."]
+offset_right = 67.0625
+offset_bottom = 31.0
+mouse_force_pass_scroll_events = false
+text = "100"
+
+[connection signal="focus_entered" from="Weight" to="." method="_on_weight_focus_entered"]
+[connection signal="focus_exited" from="Weight" to="." method="_on_weight_focus_exited"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd5x5ne1t5pfx"]
+
+[ext_resource type="Script" path="res://Scenes/node_selection_popup.gd" id="1_giqer"]
+
+[node name="NodeSelectionPopup" type="Node2D"]
+script = ExtResource("1_giqer")
+
+[node name="InputPopup" type="ColorRect" parent="."]
+offset_left = 230.0
+offset_top = 108.0
+offset_right = 420.0
+offset_bottom = 323.0
+color = Color(0, 0.172549, 0.32549, 1)
+
+[node name="Label" type="Label" parent="InputPopup"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 131.0
+offset_bottom = 32.0
+text = "Hubungkan"
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemList" type="ItemList" parent="InputPopup"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 46.0
+offset_right = 177.0
+offset_bottom = 199.0
+
+[connection signal="item_selected" from="InputPopup/ItemList" to="." method="_on_item_list_item_selected"]
